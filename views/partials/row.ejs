@@ -1,0 +1,10 @@
+<%
+    const { name, age } = person;
+    const color = age > 12 ? 'green' : 'red';
+%>
+<div>
+    <h3 style="color: <%= color %>">
+        Name: <%= name %>
+    </h3>
+    <p>Age: <%= age %></p>
+</div>
