@@ -34,8 +34,9 @@ app.get('/add/:name/:age', (req, res) => {
 });
 
 app.post('/add', parser, (req, res) => {
-    console.log(req.body);
-    res.send('Hello');
+    const { name, age } = req.body;
+    arrPerson.push({ name, age });
+    res.redirect('/');
 });
 
 app.get('*', (req, res) => res.redirect('/'));
