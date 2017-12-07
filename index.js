@@ -1,7 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const reload = require('reload');
 
 const app = express();
+const parser = bodyParser.urlencoded({ extended: false });
 
 reload(app);
 app.set('view engine', 'ejs');
@@ -29,6 +31,11 @@ app.get('/add/:name/:age', (req, res) => {
     const { name, age } = req.params;
     arrPerson.push({ name, age });
     res.redirect('/');
+});
+
+app.post('/add', parser, (req, res) => {
+    console.log(req.body);
+    res.send('Hello');
 });
 
 app.get('*', (req, res) => res.redirect('/'));
