@@ -3,17 +3,16 @@
     <%- include('./partials/head.ejs', { title: 'Home 123' }) %>
     <body>
         <h3>Khoa Pham Online 1234567899</h3>
-        <% let a = 100; %>
-        <h3><%= a %></h3>
-        <h3><%= name %></h3>
-        <% if(isAdmin) { %>
-            <a href="#">Bang dieu khien</a>
-        <% } else {%>
-            <a href="#">Ban phai la admin de dung tinh nang nay!</a>
-        <% } %>
         <% arrPerson.forEach(person => {%>
             <%- include('./partials/row.ejs', { person })  %>
         <% }); %>
+        <form method="POST" action="/add">
+            <input type="text" placeholder="Name" name="name">
+            <br><br>
+            <input type="text" placeholder="Age" name="age">
+            <br><br>
+            <button>Add new person</button>
+        </form>
     </body>
 </html>
 <script src="reload/reload.js"></script>
